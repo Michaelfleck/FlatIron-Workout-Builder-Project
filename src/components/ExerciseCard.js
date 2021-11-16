@@ -1,12 +1,11 @@
+function ExerciseCard( {exercise, onExerciseClick} ) {
 
-
-
-
-function ExerciseCard( {exercise} ) {
-
+    function handleClick() {
+        console.log(exercise)
+    }
 
     return (
-        <li className="card">
+        <li className="card" onClick={handleClick}>
             <h4>Name: {exercise.name}</h4>
             <img src={exercise.gifUrl} alt={exercise.name} />
             <p>Equipment: {exercise.equipment}</p>

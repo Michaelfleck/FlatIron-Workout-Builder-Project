@@ -103,6 +103,7 @@ input:focus {
 
 .card {
   margin: 1rem;
+  border-style: outset;
 }
 
 .card img {
