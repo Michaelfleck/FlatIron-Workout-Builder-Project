@@ -17,13 +17,13 @@ function AddExercise() {
     return (
         <div className="new-exercise-form">
             <h2>New Exercise</h2>
-            {/* //     <form>
-        //         <input type="text" name="" placeholder="a" value=""></input>
-        //         <input type="text" name="" placeholder="a" value=""></input>
-        //         <input type="text" name="" placeholder="a" value=""></input>
-        //         <input type="text" name="" placeholder="a" value=""></input>
-        //         <input type="text" name="" placeholder="a" value=""></input>
-        //     </form> */}
+            <form>
+                <input type="text" name="" placeholder="a" value=""></input>
+                <input type="text" name="" placeholder="a" value=""></input>
+                <input type="text" name="" placeholder="a" value=""></input>
+                <input type="text" name="" placeholder="a" value=""></input>
+                <input type="text" name="" placeholder="a" value=""></input>
+            </form>
         </div>
     )
 }

@@ -6,10 +6,10 @@ function MyExercises({ myExercises, onRemoveExercise }) {
         <div>
             <h2>My Exercises</h2>
             <ul className="cards">
-                {myExercises.slice(0, 10).map(myExercise =>
+                {myExercises.map(myExercise =>
                     <ExerciseCard
                         key={myExercise.id}
-                        myExercise={myExercise}
+                        exercise={myExercise}
                         onExerciseClick={onRemoveExercise}
                     />)}
             </ul>

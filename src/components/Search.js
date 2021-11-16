@@ -3,7 +3,8 @@ import React from "react";
 function Search({ searchTerm, setSearchTerm }) {
   return (
     <div className="searchbar">
-      <label htmlFor="search">Search Plants:</label>
+      <label htmlFor="search">Search Exercises:</label>
+      {/* <h2>Search Exercise:</h2> */}
       <input
         type="text"
         id="search"

@@ -1,7 +1,7 @@
 function ExerciseCard( {exercise, onExerciseClick} ) {
 
     function handleClick() {
-        console.log(exercise)
+        onExerciseClick(exercise)
     }
 
     return (

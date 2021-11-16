@@ -51,18 +51,24 @@ main {
   padding: 0 1rem;
 }
 
-.new-plant-form {
+/* .new-plant-form {
   padding: 2rem 1rem;
   margin: 2rem 0;
   background-color: rgba(181, 250, 181, 0.5);
+} */
+
+.new-exercise-form {
+  padding: 2rem 1rem;
+  margin: 2rem 0;
+  background-color: rgba(185, 186, 201, 0.5);
 }
 
-.new-plant-form form {
+.new-exercise-form form {
   display: flex;
   justify-content: center;
 }
 
-.new-plant-form input {
+.new-exercise-form input {
   margin-right: 2rem;
   flex: 1;
 }
@@ -104,7 +110,16 @@ input:focus {
 .card {
   margin: 1rem;
   border-style: outset;
+  border-color: gray;
 }
+
+.card:active {
+border-color: blueviolet;
+}
+.card:focus {
+  border-color: blueviolet;
+}
+
 
 .card img {
   width: 100%;

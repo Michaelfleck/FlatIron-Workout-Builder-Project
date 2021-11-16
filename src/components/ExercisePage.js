@@ -19,18 +19,18 @@ function ExercisePage() {
       .then(data => setExercises(data));
   }, [])
 
-  function handleAddExercise(excerciseToAdd) {
+  function handleAddExercise(exerciseToAdd) {
     const myExerciseList = myExercises.find(
-      (exercise) => exercise.id === excerciseToAdd.id
+      (exercise) => exercise.id === exerciseToAdd.id
     );
     if (!myExerciseList) {
-      setMyExercises([...myExercises, excerciseToAdd]);
+      setMyExercises([...myExercises, exerciseToAdd]);
     }
   }
 
-  function handleRemoveExercise(excerciseToRemove) {
+  function handleRemoveExercise(exerciseToRemove) {
     setMyExercises((myExercises) =>
-      myExercises.filter((exercise) => exercise.id !== excerciseToRemove.id)
+      myExercises.filter((exercise) => exercise.id !== exerciseToRemove.id)
     );
   }
 
@@ -52,10 +52,10 @@ function ExercisePage() {
 
   return (
     <main>
+      <AddExercise />
       <Search
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm} />
-      <AddExercise />
       <ExerciseList
         exercises={displayedExercises}
         onAddExercise={handleAddExercise} />
