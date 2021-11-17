@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -9,6 +10,13 @@ function Header() {
         ❚█══█❚
         </span>
       </h1>
+      <Link to="/exercise">Exercises</Link>
+      {"\n"}
+      <Link to="/exercise/new">Add New Exercise</Link>
+      {"\n"}
+      <Link to="/exercise/new/search">Search All Exercises</Link>
+      {"\n"}
+      <Link to="/exercise/new/search/my-list">My Exercise List</Link>
     </header>
   );
 }

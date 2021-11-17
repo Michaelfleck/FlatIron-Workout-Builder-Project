@@ -13,7 +13,6 @@ function ExercisePage() {
 
   const [exercises, setExercises] = useState([])
   const [myExercises, setMyExercises] = useState([])
-  const [render, setRender] = useState(null)
   const [searchTerm, setSearchTerm] = useState("");
 
 
@@ -22,6 +21,7 @@ function ExercisePage() {
       .then(resp => resp.json())
       .then(data => setExercises(data));
   }, [])
+
 
   function handleAddExercise(exerciseToAdd) {
     const myExerciseList = myExercises.find(
@@ -42,27 +42,28 @@ function ExercisePage() {
     return exercise.target.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
+  console.log(myExercises);
 
   return (
     <main>
       <Switch>
-        <Route path="/new/search/exercise/:target">
-        <MyExercises
+        <Route path="/exercise/new/search/my-list">
+         <MyExercises
           myExercises={myExercises}
           onRemoveExercise={handleRemoveExercise} />
           </Route>
-        <Route path="/new/search/exercise">
-          <ExerciseList
-            exercises={displayedExercises}
-            onAddExercise={handleAddExercise} />
-        </Route>
-        <Route path="/new/search">
+        <Route path="/exercise/new/search">
           <Search
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm} />
         </Route>
-        <Route path="/new">
+        <Route path="/exercise/new">
           <AddExercise />
+        </Route>
+        <Route path="/exercise">
+          <ExerciseList
+            exercises={displayedExercises}
+            onAddExercise={handleAddExercise} />
         </Route>
       </Switch>
     </main>

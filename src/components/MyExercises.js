@@ -2,6 +2,7 @@ import React from 'react'
 import ExerciseCard from './ExerciseCard';
 
 function MyExercises({ myExercises, onRemoveExercise }) {
+    console.log(myExercises)
     return (
         <div>
             <h2>My Exercises</h2>
