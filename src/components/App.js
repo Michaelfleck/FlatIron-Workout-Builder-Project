@@ -1,16 +1,17 @@
 import React from "react";
-import { Route, Switch } from 'react-router';
-import ExercisePage from "./ExercisePage";
 import Header from "./Header";
+import ExercisePage from "./ExercisePage";
+
+// import { Route } from 'react-router';
 
 function App() {
   return (
-    <Route path="/home">
-      <div className="app">
-        <Header />
-        <ExercisePage />
-      </div>
-    </Route>
+    <div className="app">
+      <Header />
+        {/* <Route path="/exercise"> */}
+          <ExercisePage />
+        {/* </Route> */}
+    </div >
   );
 }
 

@@ -1,7 +1,6 @@
 import ExerciseCard from "./ExerciseCard";
 
 function ExerciseList({ exercises, onAddExercise }) {
-
     return (
         <div>
             <h2>Select Exercise</h2>

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Route, Switch } from 'react-router';
+
 import AddExercise from "./AddExercise"
 import ExerciseList from "./ExerciseList";
 import MyExercises from "./MyExercises";
@@ -6,10 +8,12 @@ import Search from "./Search";
 
 
 
+
 function ExercisePage() {
 
   const [exercises, setExercises] = useState([])
   const [myExercises, setMyExercises] = useState([])
+  const [render, setRender] = useState(null)
   const [searchTerm, setSearchTerm] = useState("");
 
 
@@ -38,30 +42,29 @@ function ExercisePage() {
     return exercise.target.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
-  // const sortedExercise = [...exercises].sort((exercise1, exercise2) => {
-  //   if (sortBy === "Alphabetically") {
-  //     return exercise1.name.localeCompare(exercise2.name);
-  //   } else {
-  //     return exercise1.bodyPart - stock2.bodyPart;
-  //   }
-  // });
-
-  // const filteredExercise = sortedExercise.filter(
-  //   (exercise) => exercise.type === filterBy
-  // );
 
   return (
     <main>
-      <AddExercise />
-      <Search
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm} />
-      <ExerciseList
-        exercises={displayedExercises}
-        onAddExercise={handleAddExercise} />
-      <MyExercises
-        myExercises={myExercises}
-        onRemoveExercise={handleRemoveExercise} />
+      <Switch>
+        <Route path="/new/search/exercise/:target">
+        <MyExercises
+          myExercises={myExercises}
+          onRemoveExercise={handleRemoveExercise} />
+          </Route>
+        <Route path="/new/search/exercise">
+          <ExerciseList
+            exercises={displayedExercises}
+            onAddExercise={handleAddExercise} />
+        </Route>
+        <Route path="/new/search">
+          <Search
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm} />
+        </Route>
+        <Route path="/new">
+          <AddExercise />
+        </Route>
+      </Switch>
     </main>
   );
 }
