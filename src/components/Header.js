@@ -10,6 +10,7 @@ function Header() {
         ❚█══█❚
         </span>
       </h1>
+      <div id="navbar">
       <Link to="/exercise">Exercises</Link>
       {"\n"}
       <Link to="/exercise/new">Add New Exercise</Link>
@@ -17,6 +18,7 @@ function Header() {
       <Link to="/exercise/new/search">Search All Exercises</Link>
       {"\n"}
       <Link to="/exercise/new/search/my-list">My Exercise List</Link>
+      </div>
     </header>
   );
 }

@@ -14,6 +14,13 @@ function ExercisePage() {
   const [exercises, setExercises] = useState([])
   const [myExercises, setMyExercises] = useState([])
   const [searchTerm, setSearchTerm] = useState("");
+  const [newExerciseInput, setNewExerciseInput] = useState({
+    bodyPart: '',
+    equipment: '',
+    gifUrl: '',
+    name: '',
+    target: ''
+})
 
 
   useEffect(() => {
@@ -42,6 +49,17 @@ function ExercisePage() {
     return exercise.target.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
+  const handlePost = (exercises) => {
+    console.log("handlePost ran")
+    console.log("exercises", exercises)
+
+    fetch("http://localhost:6001/posts", { method: 'POST', 
+    headers: { 'Content-Type': 'application/json' }, 
+    body: JSON.stringify(newExerciseInput) }) 
+    .then(r => r.json()) 
+    .then(data => console.log("data: ", data, "exercises: ", exercises)) 
+  }
+
   console.log(myExercises);
 
   return (
@@ -58,12 +76,18 @@ function ExercisePage() {
             setSearchTerm={setSearchTerm} />
         </Route>
         <Route path="/exercise/new">
-          <AddExercise />
+          <AddExercise  
+            handlePost={handlePost}
+            exercises={exercises}
+            newExerciseInput={newExerciseInput}
+            setNewExerciseInput={setNewExerciseInput}
+            />
         </Route>
         <Route path="/exercise">
           <ExerciseList
             exercises={displayedExercises}
-            onAddExercise={handleAddExercise} />
+            onAddExercise={handleAddExercise}
+            />
         </Route>
       </Switch>
     </main>
