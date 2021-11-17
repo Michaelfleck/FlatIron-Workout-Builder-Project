@@ -14,19 +14,14 @@ function ExercisePage() {
   const [exercises, setExercises] = useState([])
   const [myExercises, setMyExercises] = useState([])
   const [searchTerm, setSearchTerm] = useState("");
-  const [newExerciseInput, setNewExerciseInput] = useState({
-    bodyPart: '',
-    equipment: '',
-    gifUrl: '',
-    name: '',
-    target: ''
-})
+ 
 
 
   useEffect(() => {
-    fetch(`https://exercisedb.p.rapidapi.com/exercises?rapidapi-key=77e7b80605msh242886ef2c7d7e8p1041adjsn30fa46c2ba04`)
+    fetch('http://localhost:6001/exercises')
       .then(resp => resp.json())
-      .then(data => setExercises(data));
+      .then(data => { setExercises(data);
+      });
   }, [])
 
 
@@ -49,18 +44,8 @@ function ExercisePage() {
     return exercise.target.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
-  const handlePost = (exercises) => {
-    console.log("handlePost ran")
-    console.log("exercises", exercises)
+ 
 
-    fetch("http://localhost:6001/posts", { method: 'POST', 
-    headers: { 'Content-Type': 'application/json' }, 
-    body: JSON.stringify(newExerciseInput) }) 
-    .then(r => r.json()) 
-    .then(data => console.log("data: ", data, "exercises: ", exercises)) 
-  }
-
-  console.log(myExercises);
 
   return (
     <main>
@@ -77,10 +62,7 @@ function ExercisePage() {
         </Route>
         <Route path="/exercise/new">
           <AddExercise  
-            handlePost={handlePost}
             exercises={exercises}
-            newExerciseInput={newExerciseInput}
-            setNewExerciseInput={setNewExerciseInput}
             />
         </Route>
         <Route path="/exercise">
