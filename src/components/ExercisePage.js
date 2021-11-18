@@ -5,6 +5,7 @@ import AddExercise from "./AddExercise"
 import ExerciseList from "./ExerciseList";
 import MyExercises from "./MyExercises";
 import Search from "./Search";
+import Footer from "./Footer";
 
 
 
@@ -54,7 +55,7 @@ function ExercisePage() {
 
 
   return (
-    <main>
+    <main id="main">
       <Switch>
         <Route path="/exercise/new/my-list">
           <MyExercises
@@ -76,6 +77,7 @@ function ExercisePage() {
             exercises={displayedExercises} />
         </Route>
       </Switch>
+      <Footer />
     </main>
   );
 }

@@ -215,6 +215,30 @@
       "name": "arms apart circular toe touch (male)",
       "target": "glutes",
       "id": 29
+    },
+    {
+      "name": "assisted sit-up",
+      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1758.gif",
+      "equipment": "assisted",
+      "bodyPart": "waist",
+      "target": "abs",
+      "id": 30
+    },
+    {
+      "name": "assisted standing chin-up",
+      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1431.gif",
+      "equipment": "leverage machine",
+      "bodyPart": "back",
+      "target": "lats",
+      "id": 31
+    },
+    {
+      "name": "assisted standing pull-up",
+      "gifUrl": "http://d205bpvrqc9yn1.cloudfront.net/1432.gif",
+      "equipment": "leverage machine",
+      "bodyPart": "back",
+      "target": "lats",
+      "id": 32
     }
   ]
 }

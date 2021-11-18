@@ -8,25 +8,38 @@ function AddExercise({ addNewExercise }) {
     const [bodyPart, setBodyPart] = useState('')
     const [target, setTarget] = useState('')
 
+
     const handlePost = (e) => {
         e.preventDefault();
         console.log(e);
+
+
 
         fetch("http://localhost:6001/exercises", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
+            body: JSON.stringify(
+                // reset
+                {
                 name: name,
                 gifUrl: gifUrl,
                 equipment: equipment,
                 bodyPart: bodyPart,
                 target: target,
-            }),
+            }
+            ),
         })
             .then(r => r.json())
             .then(data => addNewExercise(data));
+            
+            // form reset
+            setName("")
+            setGifUrl("")
+            setEquipment("")
+            setBodyPart("")
+            setTarget("")
 
     }
 
@@ -34,7 +47,6 @@ function AddExercise({ addNewExercise }) {
         <div className="new-exercise-form">
             <h2>New Exercise</h2>
             <form onSubmit={handlePost}>
-
                 <input
                     type="text"
                     name="name"
