@@ -215,30 +215,6 @@
       "name": "arms apart circular toe touch (male)",
       "target": "glutes",
       "id": 29
-    },
-    {
-      "name": "a",
-      "gifUrl": "a",
-      "equipment": "a",
-      "bodyPart": "a",
-      "target": "a",
-      "id": 30
-    },
-    {
-      "name": "b",
-      "gifUrl": "b",
-      "equipment": "b",
-      "bodyPart": "b",
-      "target": "b",
-      "id": 31
-    },
-    {
-      "name": "c",
-      "gifUrl": "c",
-      "equipment": "c",
-      "bodyPart": "c",
-      "target": "c",
-      "id": 32
     }
   ]
 }

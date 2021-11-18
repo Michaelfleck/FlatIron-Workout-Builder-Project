@@ -56,7 +56,7 @@ function ExercisePage() {
   return (
     <main>
       <Switch>
-        <Route path="/exercise/new//my-list">
+        <Route path="/exercise/new/my-list">
           <MyExercises
             myExercises={myExercises}
             onRemoveExercise={handleRemoveExercise} />
