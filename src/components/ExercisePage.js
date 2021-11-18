@@ -14,13 +14,14 @@ function ExercisePage() {
   const [exercises, setExercises] = useState([])
   const [myExercises, setMyExercises] = useState([])
   const [searchTerm, setSearchTerm] = useState("");
- 
+
 
 
   useEffect(() => {
     fetch('http://localhost:6001/exercises')
       .then(resp => resp.json())
-      .then(data => { setExercises(data);
+      .then(data => {
+        setExercises(data);
       });
   }, [])
 
@@ -34,6 +35,11 @@ function ExercisePage() {
     }
   }
 
+  function handleNewExercise(newExercise) {
+    const updatedExerciseArray = [newExercise, ...exercises];
+    setExercises(updatedExerciseArray);
+  }
+
   function handleRemoveExercise(exerciseToRemove) {
     setMyExercises((myExercises) =>
       myExercises.filter((exercise) => exercise.id !== exerciseToRemove.id)
@@ -44,32 +50,30 @@ function ExercisePage() {
     return exercise.target.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
- 
+
 
 
   return (
     <main>
       <Switch>
-        <Route path="/exercise/new/search/my-list">
-         <MyExercises
-          myExercises={myExercises}
-          onRemoveExercise={handleRemoveExercise} />
-          </Route>
-        <Route path="/exercise/new/search">
+        <Route path="/exercise/new//my-list">
+          <MyExercises
+            myExercises={myExercises}
+            onRemoveExercise={handleRemoveExercise} />
+        </Route>
+
+        <Route path="/exercise/new">
+          <AddExercise
+            addNewExercise={handleNewExercise}
+          />
+        </Route>
+        <Route path="/exercise">
           <Search
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm} />
-        </Route>
-        <Route path="/exercise/new">
-          <AddExercise  
-            exercises={exercises}
-            />
-        </Route>
-        <Route path="/exercise">
           <ExerciseList
-            exercises={displayedExercises}
             onAddExercise={handleAddExercise}
-            />
+            exercises={displayedExercises} />
         </Route>
       </Switch>
     </main>

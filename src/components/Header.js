@@ -15,8 +15,6 @@ function Header() {
       {"\n"}
       <Link to="/exercise/new">Add New Exercise</Link>
       {"\n"}
-      <Link to="/exercise/new/search">Search All Exercises</Link>
-      {"\n"}
       <Link to="/exercise/new/search/my-list">My Exercise List</Link>
       </div>
     </header>

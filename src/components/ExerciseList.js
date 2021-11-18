@@ -5,7 +5,7 @@ function ExerciseList({ exercises, onAddExercise }) {
         <div>
             <h2>Select Exercise</h2>
             <ul className="cards">
-                {exercises.slice(0, 10).map(exercise =>
+                {exercises.map(exercise =>
                     <ExerciseCard
                         key={exercise.id}
                         exercise={exercise}

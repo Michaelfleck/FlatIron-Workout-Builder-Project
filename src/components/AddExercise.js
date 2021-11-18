@@ -1,64 +1,76 @@
 import { useState } from "react";
 
-function AddExercise({ exercises }) {
+function AddExercise({ addNewExercise }) {
 
-    const [newExerciseInput, setNewExerciseInput] = useState({
-        bodyPart: '',
-        equipment: '',
-        gifUrl: '',
-        name: '',
-        target: ''
-    })
+    const [name, setName] = useState('')
+    const [gifUrl, setGifUrl] = useState('')
+    const [equipment, setEquipment] = useState('')
+    const [bodyPart, setBodyPart] = useState('')
+    const [target, setTarget] = useState('')
 
     const handlePost = (e) => {
         e.preventDefault();
+        console.log(e);
 
         fetch("http://localhost:6001/exercises", {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                gifUrl: gifUrl,
+                equipment: equipment,
+                bodyPart: bodyPart,
+                target: target,
+            }),
         })
             .then(r => r.json())
-            .then(data => console.log("data: ", data, "exercises: ", exercises))
+            .then(data => addNewExercise(data));
+
     }
 
     return (
         <div className="new-exercise-form">
             <h2>New Exercise</h2>
-            <form onSubmit={e => {
-                e.preventDefault();
-                handlePost(newExerciseInput)
-                console.log("form submitted")
-            }}>
+            <form onSubmit={handlePost}>
+
                 <input
-                    
-                    type="text"
-                    name="body part"
-                    placeholder="Body Part"
-                    value={newExerciseInput.bodyPart}
-                    onChange={(e) => setNewExerciseInput(e.target.value )}
-                ></input>
-                <input onChange={(e) => setNewExerciseInput({ ...newExerciseInput, equipment: e.target.value })}
-                    type="text"
-                    name="equipment"
-                    placeholder="Equipment"
-                    value={newExerciseInput.equipment}></input>
-                <input onChange={(e) => setNewExerciseInput({ ...newExerciseInput, gifUrl: e.target.value })}
-                    type="text"
-                    name="gif url"
-                    placeholder="GIF URL"
-                    value={newExerciseInput.gifUrl}></input>
-                <input onChange={(e) => setNewExerciseInput({ ...newExerciseInput, name: e.target.value })}
                     type="text"
                     name="name"
                     placeholder="Name"
-                    value={newExerciseInput.name}></input>
-                <input onChange={(e) => setNewExerciseInput({ ...newExerciseInput, target: e.target.value })}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                ></input>
+                <input
+                    type="text"
+                    name="gif url"
+                    placeholder="GIF URL"
+                    value={gifUrl}
+                    onChange={(e) => setGifUrl(e.target.value)}
+                ></input>
+                <input
+                    type="text"
+                    name="equipment"
+                    placeholder="Equipment"
+                    value={equipment}
+                    onChange={(e) => setEquipment(e.target.value)}
+                ></input>
+                <input
+                    type="text"
+                    name="body part"
+                    placeholder="Body Part"
+                    value={bodyPart}
+                    onChange={(e) => setBodyPart(e.target.value)}
+                ></input>
+                <input
                     type="text"
                     name="target"
                     placeholder="target"
-                    value={newExerciseInput.target}></input>
-                <button type="submit"> Submit Exercise </button>
+                    value={target}
+                    onChange={(e) => setTarget(e.target.value)}
+                ></input>
+                <button type="submit">Submit Exercise</button>
             </form>
         </div>
     )
