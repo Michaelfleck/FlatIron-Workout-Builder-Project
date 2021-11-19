@@ -6,17 +6,17 @@ function Header() {
     <header id="header">
       <div id="navscroll">
       <h1>
-        FlatIron Workout App
+        <span id="title"> FlatIron Workout App </span>
         <span className="logo" role="img">
         ❚█══█❚
         </span>
       </h1>
       <div id="navbar">
-      <Link to="/exercise">Exercises</Link>
+      <Link to="/exercise" class="button">Exercises</Link>
       {"\n"}
-      <Link to="/exercise/new">Add New Exercise</Link>
+      <Link to="/exercise/new" class="button">Add New Exercise</Link>
       {"\n"}
-      <Link to="/exercise/new/my-list">My Exercise List</Link>
+      <Link to="/exercise/new/my-list" class="button">My Exercise List</Link>
       </div>
       </div>
     </header>
